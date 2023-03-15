@@ -1,0 +1,72 @@
+﻿@model IEnumerable<QLRCP.Models.Phim>
+
+@{
+    ViewBag.Title = "ListPhim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; text-align: center ;font-family: avantgarde-demi; font-weight: bold "> DANH SÁCH PHIM </h2>
+
+<p style="font-family: 'Times New Roman'; font-size: 15px; color:black">
+
+    @Html.ActionLink("Quay về danh sách quản lý", "Admin", "Admin")
+
+    <br />
+    @Html.ActionLink("Thêm phim mới", "Create", "Phim")
+
+
+
+</p>
+<table class="table">
+    <tr>
+    <tr>
+        <th> Mã Phim </th>
+        <th> Tên Phim</th>
+        <th> Hình </th>
+        <th> Giá Vé</th>
+        <th> Nội Dung</th>
+        <th> Ngày Khởi Chiếu </th>
+        <th> Ngày Kết Thúc</th>
+        <th> Mã Thể Loại</th>
+        <th></th>
+    </tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaPhim)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenPhim)
+    </td>
+    @*<td>
+
+        @Html.DisplayFor(modelItem => item.Hinh)
+    </td>*@
+    <td><img src="@item.Hinh" alt="hinh thumbnail" width="170px" height="250px"/></td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GiaVe)
+    </td>
+    <td text-align ="justify">
+        @Html.DisplayFor(modelItem => item.NoiDungChinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayKhoiChieu)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NgayKetThuc)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaTL)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaPhim }) |
+        @Html.ActionLink("Detail", "Detail", new { id = item.MaPhim }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaPhim })
+    </td>
+</tr>
+}
+
+</table>

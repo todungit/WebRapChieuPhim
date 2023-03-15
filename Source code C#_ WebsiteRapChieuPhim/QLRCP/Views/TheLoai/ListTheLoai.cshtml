@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLRCP.Models.TheLoaiPhim>
+
+@{
+    ViewBag.Title = "ListTheLoai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">DANH SÁCH THỂ LOẠI PHIM</h2>
+
+<p style="font-family: 'Times New Roman'; font-size: 15px; color:black">
+
+    @Html.ActionLink("Quay về danh sách quản lý", "Admin", "Admin")
+    <br />
+    @Html.ActionLink("Thêm Thể Loại Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Thể Loại
+            @*@Html.DisplayNameFor(model => model.MaTL)*@
+        </th>
+        <th>Tên Thể Loại</th>
+        <th>
+            Chức năng
+            @*@Html.DisplayNameFor(model => model.TenTL)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaTL)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TenTL)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MaTL }) |
+        @Html.ActionLink("Details", "Detail", new { id = item.MaTL }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MaTL })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<QLRCP.Models.DoAn>
+
+@{
+    ViewBag.Title = "ListDoAn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">DANH SÁCH ĐỒ ĂN</h2>
+
+<p style="font-family: 'Times New Roman'; font-size: 15px; color:black">
+    @Html.ActionLink("Quay về danh sách quản lý", "Admin", "Admin")
+
+    <br />
+    @Html.ActionLink("Thêm Đồ Ăn Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên Đồ Ăn
+            @*@Html.DisplayNameFor(model => model.TenDA)*@
+        </th>
+        <th>
+            Hình
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </th>
+        <th>
+            Giá Bán
+            @*@Html.DisplayNameFor(model => model.GiaDA)*@
+        </th>
+        
+        <th>Chức năng</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDA)
+        </td>
+        <td>
+            <img src="@item.Hinh" alt="hinh thumbnail" width="170px" height="200px" />
+
+            @*@Html.DisplayFor(modelItem => item.Hinh)*@
+        </td>
+           
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaDA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaDA }) |
+            @Html.ActionLink("Detail", "Detail", new { id=item.MaDA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaDA })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">DANH SÁCH CẦN QUẢN LÝ</h2>
+
+<br />
+
+<table class="table">
+    <tr>
+        <th>Tên Hạng Mục</th>
+        <th>Chức năng</th>
+    </tr>
+
+    @*@foreach (var item in Model)*@
+    @*{*@
+        <tr>
+            <td>Phim</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListPhim", "Phim")</td>
+        </tr>
+        <tr>
+            <td>Thể Loại Phim</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListTheLoai", "TheLoai")</td>
+        </tr>
+        <tr>
+            <td>Đồ Ăn</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListDoAn", "DoAn")</td>
+        </tr>
+        <tr>
+            <td>Phòng Chiếu</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListPhongChieu", "PhongChieu")</td>
+        </tr>
+        <tr>
+            <td>Giờ Chiếu</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListGioChieu", "GioChieu")</td>
+        </tr>
+        <tr>
+            <td>Ghế Phòng Chiếu</td>
+            <td>@Html.ActionLink("Chi Tiết", "ListGhePhongChieu", "GhePhongChieu")</td>
+        </tr>
+    @*}*@
+</table>

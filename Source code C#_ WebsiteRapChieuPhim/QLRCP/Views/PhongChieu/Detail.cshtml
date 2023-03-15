@@ -1,0 +1,37 @@
+﻿@model QLRCP.Models.PhongChieu
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">CHI TIẾT PHÒNG CHIẾU</h2>
+
+<div>
+    @*<h4>PhongChieu</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phòng Chiếu:
+            @*@Html.DisplayNameFor(model => model.TenPhongChieu)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhongChieu)
+        </dd>
+
+        <dt>
+            Số Ghế:
+            @*@Html.DisplayNameFor(model => model.SoGhe)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoGhe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MaPhongChieu }) |*@
+    @Html.ActionLink("Quay về danh sách phòng chiếu", "ListPhongChieu")
+</p>

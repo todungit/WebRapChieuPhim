@@ -1,0 +1,28 @@
+﻿@model QLRCP.Models.GioChieu
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">Chi tiết</h2>
+
+<div>
+    @*<h4>GioChieu</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Giờ Chiếu:
+            @*@Html.DisplayNameFor(model => model.GioChieu1)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GioChieu1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MaGioChieu }) |*@
+    @Html.ActionLink("Quay về danh sách giờ chiếu", "ListGioChieu", "GioChieu")
+</p>

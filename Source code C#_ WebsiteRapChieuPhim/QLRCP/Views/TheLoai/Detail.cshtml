@@ -1,0 +1,28 @@
+﻿@model QLRCP.Models.TheLoaiPhim
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">CHI TIẾT THỂ LOẠI PHIM</h2>
+
+<div>
+    @*<h4>TheLoaiPhim</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên thể loại
+            @*@Html.DisplayNameFor(model => model.TenTL)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaTL }) |
+    @Html.ActionLink("Quay về danh sách thể loại phim", "ListTheLoai","TheLoai")
+</p>

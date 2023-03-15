@@ -1,0 +1,53 @@
+﻿@model QLRCP.Models.DoAn
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">XÓA ĐỒ ĂN</h2>
+
+<h3 style="margin-left: 30px">Bạn có chắc chắn muốn xóa không ?</h3>
+<div>
+    @*<h4>DoAn</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Đồ Ăn
+            @*@Html.DisplayNameFor(model => model.TenDA)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDA)
+        </dd>
+
+        <dt>
+            Hình
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </dt>
+
+        <dd>
+            <img src=" @Html.DisplayFor(model => model.Hinh)" alt="hinh thumbnail" width="170px" height="250px" />
+            @*@Html.DisplayFor(model => model.Hinh)*@
+        </dd>
+
+        <dt>
+            Giá Đồ Ăn
+            @*@Html.DisplayNameFor(model => model.GiaDA)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaDA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color" style="margin-left: 110px">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về danh sách đồ ăn", "ListDoAn", "DoAn")
+        </div>
+    }
+</div>

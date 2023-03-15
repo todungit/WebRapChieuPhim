@@ -1,0 +1,119 @@
+﻿@model IEnumerable<QLRCP.Models.GioHang>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 110px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">ĐẮT HÀNG</h2>
+<br />
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>Mã Phim</th>
+        <th>@Html.DisplayNameFor(model => model.tensp)</th>
+        <th>@Html.DisplayNameFor(model => model.hinh)</th>
+        <th>@Html.DisplayNameFor(model => model.giasp)</th>
+        <th>@Html.DisplayNameFor(model => model.iSoLuong)</th>
+        <th>@Html.DisplayNameFor(model => model.dThanhTien)</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.masp)</td>
+            <td>@Html.DisplayFor(modelItem => item.tensp)</td>
+            @*<td>@Html.DisplayFor(modelItem => item.hinh)</td>*@
+            <td><img src="@item.hinh" alt="hinh thumnail" width="230px" height="330px"></td>
+            @*<td><img scr="@item.hinh" width="300px" height="370px"</td>*@
+            @using (Html.BeginForm("CapnhatGiohang", "GioHang", new { @id = item.masp }))
+            {
+                <td>@string.Format("{0:0,0}", item.giasp)VND </td>
+                <td>@Html.DisplayFor(modelItem => item.iSoLuong)</td>
+                <td>@Html.DisplayFor(modelItem => item.dThanhTien)</td>
+
+            }
+        </tr>
+    }
+    <tr style="font-weight:bold ; text-align: right; color:red">
+        <td colspan="3">Số lượng sản phẩm: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Số loại sản phẩm: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", @ViewBag.Tongtien) VNĐ</td>
+    </tr>
+    <tr style="font-weight:bold; text-align: right">
+        <td colspan="6">@Html.ActionLink("Trở về giỏ hàng", "GioHang", "GioHang")</td>
+    </tr>
+</table>
+
+
+@using QLRCP.Models;
+@using Microsoft.AspNet.Identity;
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    // AspNetUser kh = (AspNetUser)Session["TaiKhoan"];
+    //AspNetUser email = (AspNetUser)Session["Email"];
+
+    string email = (string)(Session["email"]);
+    System.Web.HttpContext curContext = System.Web.HttpContext.Current;
+    curContext.Session["email"] = email;
+    email = (string)(curContext.Session["email"]);
+
+    string name = (string)(Session["Name"]);
+    System.Web.HttpContext curContext1 = System.Web.HttpContext.Current;
+    curContext1.Session["Name"] = name;
+    name = (string)(curContext1.Session["Name"]);
+
+
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ tên khách hàng: &nbsp;</td>
+            <td>@name.ToString()</td>
+            @*<td>@kh.Email</td>*@
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>@email.ToString()</td>
+        </tr>
+
+        <tr style="height:40px">
+            <td>Ngày đặt: </td>
+            <td>@DateTime.Now.ToLongDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td>Ngày xem: </td>
+            <td><input type="date" name="NgayXem" /></td>
+        </tr>
+        <tr style="height:40px">
+            <td>Giờ xem: </td>
+            <td>
+                <select name="menu" style="height:23px ; width:123px ">
+                    <option value="0" checked>15H
+                    <option value="1">17H
+                    <option value="2">19H
+                    <option value="3">21H
+                </select>
+
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <br />
+            <td>
+                <input type="submit" value="Đồng ý đặt hàng" class="btn btn-success" />
+            </td>
+        </tr>
+        <br />
+    }
+</table>
+<br />
+<br />
+<br />
+

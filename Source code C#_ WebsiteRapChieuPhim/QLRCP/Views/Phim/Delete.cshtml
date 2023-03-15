@@ -1,0 +1,89 @@
+﻿@model QLRCP.Models.Phim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">XÓA PHIM</h2>
+
+<h3 style="margin-left: 30px">Bạn có chắc chắn muốn xóa không ?</h3>
+<div>
+    @*<h4>Phim</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phim:
+            @*@Html.DisplayNameFor(model => model.TenPhim)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhim)
+        </dd>
+
+        <dt>
+            Ngày khởi chiếu:
+            @*@Html.DisplayNameFor(model => model.NgayKhoiChieu)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayKhoiChieu)
+        </dd>
+
+        <dt>
+            Ngày kết thức:
+            @*@Html.DisplayNameFor(model => model.NgayKetThuc)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayKetThuc)
+        </dd>
+
+        <dt>
+            Hình:
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh)
+        </dd>
+
+        <dt>
+            Giá vé:
+            @*@Html.DisplayNameFor(model => model.GiaVe)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaVe)
+        </dd>
+
+        <dt>
+            Nội dung chính:
+            @*@Html.DisplayNameFor(model => model.NoiDungChinh)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDungChinh)
+        </dd>
+
+        <dt>
+            Mã thể loại:
+            @*@Html.DisplayNameFor(model => model.MaTL)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Quay về danh sách phim", "ListPhim", "Phim")
+        </div>
+    }
+</div>

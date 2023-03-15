@@ -1,0 +1,49 @@
+﻿@model QLRCP.Models.DoAn
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">CHI TIẾT ĐỒ ĂN</h2>
+
+<div>
+    @*<h4>DoAn</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Đồ Ăn
+            @*@Html.DisplayNameFor(model => model.TenDA)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDA)
+        </dd>
+
+        <dt>
+            Hình
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </dt>
+
+        <dd>
+            <img src=" @Html.DisplayFor(model => model.Hinh)" alt="hinh thumbnail" width="170px" height="250px" />
+            @*@Html.DisplayFor(model => model.Hinh)*@
+        </dd>
+
+        <dt>
+            Giá Đồ Ăn
+            @*@Html.DisplayNameFor(model => model.GiaDA)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaDA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <div style="margin-left: 150px">
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaDA }) |
+        @Html.ActionLink("Quay về danh sách đồ ăn", "ListDoAn", "DoAn")
+    </div>
+</p>

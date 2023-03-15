@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QLRCP.Models.GhePhongChieu>
+@{
+    ViewBag.Title = "ListGhePhongChieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">DANH SÁCH GHẾ PHÒNG CHIẾU</h2>
+
+<p style="font-family: 'Times New Roman'; font-size: 15px; color:black">
+    @Html.ActionLink("Quay về danh sách quản lý", "Admin", "Admin")
+
+    <br />
+    @Html.ActionLink("Thêm ghế phòng chiếu Mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã Ghế
+            @*@Html.DisplayNameFor(model => model.MaTL)*@
+        </th>
+        <th>Tên Ghế</th>
+        <th>
+            Chức năng
+            @*@Html.DisplayNameFor(model => model.TenTL)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaGhe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenGhe)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaGhe }) |
+                @Html.ActionLink("Detail", "Detail", new { id = item.MaGhe }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaGhe })
+            </td>
+        </tr>
+    }
+
+</table>

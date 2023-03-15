@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://cinestar.com.vn/pictures/moi/9Logo/den.png">
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
+
+    <title>@*@ViewBag.Title*@ CINESTAR - Hệ Thống Rạp Chiếu Phim</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style=" background-image: url(../Content/images/nen.png)">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="~/" class="link-to-home"><img src="~/Content/images/logo.png" style="height:90px;width:220px" alt="ruoungoai">  </a>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-size: 18px; margin-left: 2px; margin-top:30px ;font-family: avantgarde-demi; color:white">
+                    <li>@Html.ActionLink("TRANG CHỦ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("PHIM", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ĐỒ ĂN", "ListDoAn", "Home")</li>
+                    <li>@Html.ActionLink("GIỚI THIỆU", "About", "Home")</li>
+                    <li>@Html.ActionLink("LIÊN HỆ", "Contact", "Home")</li>
+
+                    <li>@Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="row bg-light">
+                <marquee behavior="alternate" scrollamount="10"><a class="link-discount text-decoration-none text-success" href=""> <p style="color:white;"> <ion-icon name="call"></ion-icon> 028 7300 8881 | Làm việc từ 8h:00 - 20h:00 với những KHUYẾT MÃI hấp dẫn</p></a></marquee>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <div class="footer" style="background-image: url(../Content/images/nen.png); flex-wrap: wrap; color: white ">
+        <div class="container">
+
+            <div class="row" style=" display: flex; flex-wrap: nowrap;">
+                <div class="footer-col-1" style="margin-top: 0.5cm; width: 30%; height: 30%">
+                    <h3 style="font-size: 30px; text-align: center">HỆ THỐNG RẠP</h3>
+                    <p style="font-size: 20px; color: white; text-align: center; font-family: avantgarde-demi">
+                        CineStar Quốc Thanh<br>
+                        CineStar Đà Lạt<br>
+                        CineStar Hai Bà Trưng<br>
+
+                        <br>Hotline: 028 7300 8881<br>
+                    </p>
+                    @*<h3 font-size: 20px;>THỜI GIAN LÀM VIỆC</h3>
+                        <p style="font-size: 15px; color: black">
+                            *Thứ 2 – Chủ Nhật ( 8:30 – 21:00 )
+                        </p>*@
+                </div>
+                <div class="footer-col-2" style=" margin-top: 0.5cm; text-align: left; width: 30%; height: 30%; margin-right:40px">
+                    <div class="foot-1">
+                        <h3 style="font-size: 30px; text-align: center">CINESTAR</h3>
+                    </div>
+                    <p style="font-size: 20px; color: white; text-align: center; font-family: avantgarde-demi" >
+                        @Html.ActionLink("Phim Đang Chiếu", "Index", "Home")<br />
+                        @Html.ActionLink("Phim Sắp Chiếu", "Index", "Home")<br />
+                        @Html.ActionLink("Lịch Chiếu", "Index", "Home")<br />
+                        @Html.ActionLink("Khuyến Mãi", "Index", "Home")<br />
+
+                    </p>
+                </div>
+                <div class="footer-col-3" style=" margin-top: 0.5cm; text-align: left; width: 30%; height: 30% ; margin-right:50px">
+                    <h3 style="font-size: 30px; text-align: center">THÔNG TIN</h3>
+                    <div style=" font-size: 20px; color: white; text-align: center; font-family: avantgarde-demi">
+                        @Html.ActionLink("Giới Thiệu", "About", "Home")<br />
+                        @Html.ActionLink("Tin Tức", "About", "Home")<br />
+                        @Html.ActionLink("Hỏi và Đáp", "About", "Home")<br />
+                        @Html.ActionLink("Liên Hệ", "About", "Home")<br />
+
+                        @*<img src="~/Content/images/Logo1.png" alt="" style="width: 190px; height: 35%; margin-bottom: 0.2cm; ">
+                            <img src="~/Content/images/Logo2.png" alt="" style="width: 190px; height: 35%; margin-bottom: 0.2cm;  ">*@
+                    </div>
+                </div>
+                <div class="footer-col-4" style=" margin-top: 0.5cm; text-align: center; width: 30%; height: 30% ">
+                    <div class="foot-1">
+                        <h3 style="font-size: 30px; text-align: center">CHÍNH SÁCH VÀ QUY ĐỊNH</h3>
+                    </div>
+                    <div class="app-logo-kn" style="font-size: 20px; color: white; font-family: avantgarde-demi">
+
+                        @Html.ActionLink("Quy Định Chung", "Index", "Home")<br />
+                        @Html.ActionLink("Điều Khoản Giao Dịch", "Index", "Home")<br />
+                        @Html.ActionLink("Chính Sách Bảo Mật", "Index", "Home")<br />
+                        @Html.ActionLink("Thông Tin Công Ty", "Index", "Home")<br />
+
+
+                        @*<img src="~/Content/images/Logo5.png" alt="" style="width: 84px; height: 35%; margin-left: 20px; ">
+                            <img src="~/Content/images/Logo4.png" alt="" style="width: 73px; margin-left: 60px; height: 35%; ">
+                            <img src="~/Content/images/Logo3.png" alt="" style="width: 234px; height: 35%; display: block; margin-left: 25px; ">*@
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="coppy-right-box">
+                <div class="container">
+                    <p class="coppy-right-text">Thiết kế bởi Tô Văn Dũng & Phạm Trần Vĩnh Tường </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Messenger Plugin chat Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Plugin chat code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+        var chatbox = document.getElementById('fb-customer-chat');
+        chatbox.setAttribute("page_id", "104123209015087");
+        chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v14.0'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model QLRCP.Models.PhongChieu
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">XÓA PHÒNG CHIẾU</h2>
+
+<h3>Bạn có chắc chắn muốn xóa phòng chiếu này không?</h3>
+<div>
+    @*<h4>PhongChieu</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phòng Chiếu:
+            @*@Html.DisplayNameFor(model => model.TenPhongChieu)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhongChieu)
+        </dd>
+
+        <dt>
+            Số Ghế:
+            @*@Html.DisplayNameFor(model => model.SoGhe)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoGhe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+             @Html.ActionLink("Quay về danh sách phòng chiếu", "ListPhongChieu", "PhongChieu")
+        </div>
+    }
+</div>

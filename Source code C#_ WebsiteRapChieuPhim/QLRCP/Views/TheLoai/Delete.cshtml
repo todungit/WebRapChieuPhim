@@ -1,0 +1,38 @@
+﻿@model QLRCP.Models.TheLoaiPhim
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">XÓA THỂ LOẠI PHIM</h2>
+
+<h3 style="margin-left: 30px">Bạn có chắc chắn muốn xóa không ?</h3>
+<div>
+    @*<h4>TheLoaiPhim</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Thể Loại: 
+            @*@Html.DisplayNameFor(model => model.TenTL)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" />
+             
+            @Html.ActionLink("Quay về danh sách thể loại phim", "ListTheLoai", "TheLoai")
+
+
+        </div>
+     }
+</div>

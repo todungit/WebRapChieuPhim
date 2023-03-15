@@ -1,0 +1,110 @@
+﻿@model PagedList.IPagedList<QLRCP.Models.DoAn>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "ListDoAn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 110px; text-align: center ;font-family: avantgarde-demi; font-weight: bold ">DANH SÁCH CÁC ĐỒ ĂN</h2>
+<br />
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @item.TenDA
+                </div>
+                <div class="panel-body">
+                    <p><strong>Giá đồ ăn: </strong>@item.GiaDA</p>
+                    @*<p><strong>Ngày Khởi chiếu: </strong>@item.NgayKhoiChieu</p>*@
+                    @*<p><strong>Số lượng tồn: </strong>@item.soluongton</p>*@
+                    <p><img src="@item.Hinh" alt="hinh thumnail" width="220px" height="250px"></p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        @*<a href="#" class="btn btn-primary">Order</a>*@
+                        <div class="DatMua">
+                            <a class="btn btn-success" id="bt   n" href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.MaDA, @strURL = Request.Url.ToString() })">Thêm Món</a>
+
+                            @*<script language="javascript">
+                                var button = document.getElementById("btn");
+                                button.onclick = function () {
+                                    alert("Đồ ăn của bạn đã được thêm vào giỏ hàng");
+                                }
+                            </script>*@
+
+                            <script language="javascript">
+                                var button = document.getElementById("btn");
+                                button.onclick = function () {
+                                alert("Đồ ăn đã được thêm vào giỏ hàng");
+
+                                }
+                            </script>
+
+                            &emsp;
+                            @Html.ActionLink("Chi Tiết", "Detail", "DoAn", new { id = item.MaDA }, new { @class = "btn btn-default" })
+                            &emsp;&emsp;&emsp;&emsp;&emsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div>
+    <div>
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) /
+        @Model.PageCount
+    </div>
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new
+        {
+            page = page
+        }))
+    </div>
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
+<style type="text/css">
+    #mau-nut a {
+        clear: both;
+        background-color: orange;
+        color: snow;
+    }
+
+        #mau-nut a:hover {
+            background-color: darkcyan;
+            color: snow;
+        }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var maxLength = 100;
+        $(".show-read-more").each(function () {
+            var myStr = $(this).text();
+            if ($.trim(myStr).length > maxLength) {
+                var newStr = myStr.substring(0, maxLength);
+                var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+                $(this).empty().html(newStr);
+                $(this).append(' <a href="javascript:void(0);" class="readmore">đọc tiếp...</a>');
+                $(this).append('<span class="more-text">' + removedStr +
+                    '</span>');
+            }
+        });
+        $(".read-more").click(function () {
+            $(this).siblings(".more-text").contents().unwrap();
+            $(this).remove();
+        });
+    });
+</script>
+<style>
+    .show-read-more .more-text {
+        display: none;
+    }
+</style>

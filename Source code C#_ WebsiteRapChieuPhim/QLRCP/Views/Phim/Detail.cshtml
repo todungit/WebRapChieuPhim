@@ -1,0 +1,82 @@
+﻿@model QLRCP.Models.Phim
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">CHI TIẾT PHIM</h2>
+
+<div>
+    @*<h4>Phim</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Phim
+            @*@Html.DisplayNameFor(model => model.TenPhim)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenPhim)
+        </dd>
+
+        <dt>
+            Ngày khởi chiếu
+            @*@Html.DisplayNameFor(model => model.NgayKhoiChieu)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayKhoiChieu)
+        </dd>
+
+        <dt>
+            Ngày kết thúc
+            @*@Html.DisplayNameFor(model => model.NgayKetThuc)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayKetThuc)
+        </dd>
+
+        <dt>
+            Hình
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </dt>
+
+        <dd>
+            <img src=" @Html.DisplayFor(model => model.Hinh)" alt="hinh thumbnail" width="170px" height="250px" />
+        </dd>
+
+        <dt>
+            Giá vé
+            @*@Html.DisplayNameFor(model => model.GiaVe)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaVe)
+        </dd>
+
+        <dt>
+            Nội dung chính
+            @*@Html.DisplayNameFor(model => model.NoiDungChinh)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoiDungChinh)
+        </dd>
+
+        <dt>
+            Mã thể loại
+            @*@Html.DisplayNameFor(model => model.MaTL)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.MaPhim }) |
+    @Html.ActionLink("Quay về danh sách phim", "ListPhim", "Phim")
+</p>

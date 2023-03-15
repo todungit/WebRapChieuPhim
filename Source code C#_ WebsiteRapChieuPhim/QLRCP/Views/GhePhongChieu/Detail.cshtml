@@ -1,0 +1,28 @@
+﻿@model QLRCP.Models.GhePhongChieu
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top: 130px; margin-left: 70px; font-family: avantgarde-demi; font-weight: bold ">CHI TIẾT GHẾ PHÒNG CHIẾU</h2>
+
+<div>
+    @*<h4>GhePhongChieu</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Ghế
+            @*@Html.DisplayNameFor(model => model.TenGhe)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenGhe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.MaGhe }) |*@
+    @Html.ActionLink("Quay về danh sách ghế phòng chiếu", "ListGhePhongChieu", "GhePhongChieu")
+</p>
